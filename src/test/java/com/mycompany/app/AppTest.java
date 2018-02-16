@@ -39,23 +39,34 @@ public class AppTest
     {
         assertTrue( true );
     }
-   public void testFound() {
-      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertTrue(new App().search(array, 4));
+   public void testFoundin1() {
+      int [] arr1= new int[]{1,2,3,4};
+      int [] arr2= new int[]{5,6,7,8};
+      assertTrue(new App().search(arr1, arr2, 2, 2));
     }
-
+   public void testFoundin2() {
+      int [] arr1= new int[]{1,2,3,4};
+      int [] arr2= new int[]{5,6,7,8};
+      assertTrue(new App().search(arr1, arr2, 2, 3));
+    }
+   public void testFoundinboth() {
+      int [] arr1= new int[]{1,2,3,4};
+      int [] arr2= new int[]{4,5,6,7};
+      assertFalse(new App().search(arr1, arr2, 2, 2));
+    }
     public void testNotFound() {
-      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertFalse(new App().search(array, 5));
+      int [] arr1= new int[]{1,2,3,4};
+      int [] arr2= new int[]{5,6,7,8};
+      assertFalse(new App().search(arr1, arr2, 2, 5));
     }
-
-    public void testEmptyArray() {
-      ArrayList<Integer> array = new ArrayList<>();
-      assertFalse(new App().search(array, 1));
+    public void testEmptyArray1() {
+      int [] arr1= new int[5];
+      int [] arr2= new int[]{1,2,3,4};
+      assertFalse(new App().search(arr1, arr2, 2, 3));
     }
-
-    public void testNull() {
-      assertFalse(new App().search(null, 1));
+    public void testEmptyArray2() {
+      int [] arr1= new int[]{1,2,3,4};
+      int [] arr2= new int[5];
+      assertFalse(new App().search(arr1, arr2, 2, 3));
     }
-
 }
